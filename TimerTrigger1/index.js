@@ -87,10 +87,10 @@ module.exports = async function (context, myTimer) {
                     text: "MailChimp API broken :negative_squared_cross_mark:",
                   })
                   .then(function (response) {
-                    console.log(response);
+                    context.log(response);
                   })
                   .catch(function (error) {
-                    console.log(error);
+                    context.log(error);
                   });
               } // get respective list id and adds a subscribing user to the list
               axios
@@ -98,10 +98,10 @@ module.exports = async function (context, myTimer) {
                   text: "Read succeeded :white_check_mark:",
                 })
                 .then(function (response) {
-                  console.log(response);
+                  context.log(response);
                 })
                 .catch(function (error) {
-                  console.log(error);
+                  context.log(error);
                 });
               db.close();
             });
@@ -115,13 +115,23 @@ module.exports = async function (context, myTimer) {
           text: "Connection to MongoDB failed :negative_squared_cross_mark:",
         })
         .then(function (response) {
-          console.log(response);
+          context.log(response);
         })
         .catch(function (error) {
-          console.log(error);
+          context.log(error);
         });
     }
   }
+  axios
+    .post(process.env.SLACK_URL, {
+      text: "Read succeeded :white_check_mark:",
+    })
+    .then(function (response) {
+      context.log(response);
+    })
+    .catch(function (error) {
+      context.log(error);
+    });
   context.log("JavaScript timer trigger function ran!", timeStamp);
 };
 
