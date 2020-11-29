@@ -9,6 +9,7 @@
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.24",
     "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
     "mongodb": "^3.6.3"
   }
 }

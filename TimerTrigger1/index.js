@@ -12,7 +12,7 @@ module.exports = async function (context, myTimer) {
     const uri =
       "mongodb+srv://saarang:1234@userdb.fy9ao.mongodb.net/userdb?retryWrites=true&w=majority";
     client.setConfig({
-      apiKey: "d20e862dfd5b56e4cf55884126cbee01-us2",
+      apiKey: "fedee62c9a67cceb30f0974abb292f8d-us2",
       server: "us2",
     });
 
@@ -67,7 +67,7 @@ module.exports = async function (context, myTimer) {
                     // simply tries adding an email to mailchimp
                     axios
                       .post(
-                        "https://hooks.slack.com/services/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",
+                        "https://hooks.slack.com/services/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",
                         {
                           text:
                             "Mailchimp API is broken :negative squared_cross_mark:",
@@ -87,7 +87,7 @@ module.exports = async function (context, myTimer) {
               } catch (err) {
                 axios
                   .post(
-                    "https://hooks.slack.com/services/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",
+                    "https://hooks.slack.com/services/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",
                     {
                       text:
                         "MailChimp API broken :negative_squared_cross_mark:",
@@ -100,29 +100,29 @@ module.exports = async function (context, myTimer) {
                     console.log(error);
                   });
               } // get respective list id and adds a subscribing user to the list
+              axios
+                .post(
+                  "https://hooks.slack.com/services/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",
+                  {
+                    text: "Read succeeded :white_check_mark:",
+                  }
+                )
+                .then(function (response) {
+                  console.log(response);
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
               db.close();
             });
         }
       );
     try {
       getInfo();
+    } catch (err) {
       axios
         .post(
-          "https://hooks.slack.com/services/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",
-          {
-            text: "Read succeeded :white_check_mark:",
-          }
-        )
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    } catch {
-      axios
-        .post(
-          "https://hooks.slack.com/services/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",
+          "https://hooks.slack.com/services/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",
           {
             text: "Connection to MongoDB failed :negative_squared_cross_mark:",
           }
@@ -137,3 +137,5 @@ module.exports = async function (context, myTimer) {
   }
   context.log("JavaScript timer trigger function ran!", timeStamp);
 };
+
+//0 0 */12 * * 0-6
